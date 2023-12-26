@@ -6,6 +6,8 @@ First, run the development server:
 
 ```bash
 npm run dev
+# and
+npx convex dev
 # or
 yarn dev
 # or
