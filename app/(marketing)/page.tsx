@@ -1,0 +1,16 @@
+import AppHeader from "./_components/AppHeader";
+import Footer from "./_components/Footer";
+import Heroes from "./_components/Heroes";
+
+const MarketingPage = () => {
+  return (
+    <div className="min-h-full flex flex-col">
+      <div className="flex flex-col items-center justify-center md:justify-start text-centergap-y-8 flex-1 px-6 pb-10">
+        <AppHeader />
+        <Heroes />
+      </div>
+      <Footer />
+    </div>
+  );
+};
+export default MarketingPage;
