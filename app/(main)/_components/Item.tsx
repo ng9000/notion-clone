@@ -110,14 +110,20 @@ const Item = ({
           className="h-full dark:hover:bg-neutral-600 rounded-sm hover:bg-neutral-300 mr-1"
           onClick={handleExpand}
         >
-          <ChevronIcon className="h-4 w-4 text-muted-foreground/50 shrink-0" />
+          <ChevronIcon
+            className="h-4 w-4 text-muted-foreground/50 shrink-0"
+            aria-label="open file tree"
+          />
         </div>
       )}
 
       {documentIcon ? (
         <div className="mr-2 shrink-0 text-[18px]">{documentIcon}</div>
       ) : (
-        <Icon className="mr-2 text-muted-foreground shrink-0 h-[18px] w-[18px]" />
+        <Icon
+          className="mr-2 text-muted-foreground shrink-0 h-[18px] w-[18px]"
+          aria-label="lucid icon"
+        />
       )}
 
       <span className="truncate">{label}</span>
@@ -134,9 +140,12 @@ const Item = ({
             <DropdownMenuTrigger onClick={(e) => e.stopPropagation()} asChild>
               <div
                 role="button"
-                className="opacity-0 group-hover:opacity-100 h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
+                className="h-full ml-auto rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600"
               >
-                <MoreHorizontal className="h-4 w-4 text-muted-foreground" />
+                <MoreHorizontal
+                  className="h-4 w-4 text-muted-foreground"
+                  aria-label="more options"
+                />
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent
@@ -146,7 +155,7 @@ const Item = ({
               forceMount
             >
               <DropdownMenuItem onClick={onArchive}>
-                <Trash className="h-4 w-4 mr-2" />
+                <Trash className="h-4 w-4 mr-2" aria-label="delete document" />
                 Delete
               </DropdownMenuItem>
               <DropdownMenuSeparator />
@@ -156,11 +165,14 @@ const Item = ({
             </DropdownMenuContent>
           </DropdownMenu>
           <div
-            className="group-hover:opacity-100 opacity-0 h-full ml-auto rounded-sm hover:bg-nuteral-300 dark:hover:bg-neutral-600 "
+            className="h-full ml-auto rounded-sm hover:bg-nuteral-300 dark:hover:bg-neutral-600 "
             role="button"
             onClick={createNew}
           >
-            <Plus className="h-4 w-4 text-muted-foreground" />
+            <Plus
+              className="h-4 w-4 text-muted-foreground"
+              aria-label="add file in tree"
+            />
           </div>
         </div>
       )}

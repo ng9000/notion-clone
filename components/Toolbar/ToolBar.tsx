@@ -74,11 +74,11 @@ export const ToolBar = ({ initialData, preview }: ToolbarProps) => {
           </IconPicker>
           <Button
             onClick={onRemoveIcon}
-            className="rounded-full opacity-0 group-hover/icon:opacity-100 transition text-muted-foreground text-xs"
+            className="rounded-full transition text-muted-foreground text-xs"
             variant="outline"
             size="icon"
           >
-            <X className="h-4 w-4" />
+            <X className="h-4 w-4" aria-label="remove icon" />
           </Button>
         </div>
       )}
@@ -87,7 +87,7 @@ export const ToolBar = ({ initialData, preview }: ToolbarProps) => {
         <p className="text-6xl pt-6">{initialData.icon}</p>
       )}
 
-      <div className="opacity-0 group-hover:opacity-100 flex items-center gap-x-1 py-4">
+      <div className="flex items-center gap-x-1 py-4">
         {!initialData.icon && !preview && (
           <IconPicker onChange={onIconSelect} asChild>
             <Button
@@ -95,7 +95,7 @@ export const ToolBar = ({ initialData, preview }: ToolbarProps) => {
               variant="outline"
               size="sm"
             >
-              <Smile className="h-4 w-4 mr-2" />
+              <Smile className="h-4 w-4 mr-2" aria-label="add icon" />
               Add icon
             </Button>
           </IconPicker>
@@ -107,7 +107,8 @@ export const ToolBar = ({ initialData, preview }: ToolbarProps) => {
             onClick={coverImage.onOpen}
             size="sm"
           >
-            <ImageIcon className="h-4 w-4 mr-2" /> Add cover
+            <ImageIcon className="h-4 w-4 mr-2" aria-label="add image" />
+            Add cover
           </Button>
         )}
       </div>

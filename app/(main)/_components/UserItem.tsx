@@ -17,7 +17,7 @@ const UserItem = () => {
         <div className="flex items-center text-sm p-3 w-full">
           <div className="gap-x-2 flex items-center max-w-[150px]">
             <Avatar className="w-5 h-5">
-              <AvatarImage src={user?.imageUrl} />
+              <AvatarImage src={user?.imageUrl} alt="user profile" />
             </Avatar>
             <span>{user?.fullName}&apos;s Notion</span>
           </div>

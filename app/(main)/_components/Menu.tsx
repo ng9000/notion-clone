@@ -41,7 +41,7 @@ export const Menu = ({ documentId }: BannerProps) => {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button size="sm" variant="ghost">
-          <MoreHorizontal className="h-4 w-4" />
+          <MoreHorizontal className="h-4 w-4" aria-label="more options" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

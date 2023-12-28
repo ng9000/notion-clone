@@ -71,9 +71,16 @@ export const Publish = ({ initialData }: PublishProps) => {
     <Popover>
       <PopoverTrigger asChild>
         <Button size="sm" variant="ghost">
-          {initialData.isPublished ? "Published" : "Publish"}
+          {initialData.isPublished ? (
+            <p className=" text-green-600">Published</p>
+          ) : (
+            "Publish"
+          )}
           {initialData.isPublished && (
-            <Globe className="text-sky-500 w-4 h-4 ml-2" />
+            <Globe
+              className="text-sky-500 w-4 h-4 ml-2"
+              aria-label="published"
+            />
           )}
         </Button>
       </PopoverTrigger>
@@ -81,7 +88,10 @@ export const Publish = ({ initialData }: PublishProps) => {
         {initialData.isPublished ? (
           <div className="space-y-4">
             <div className="flex items-center gap-x-2">
-              <Globe className="text-sky-500 animate-pulse h-4 w-4" />
+              <Globe
+                className="text-sky-500 animate-pulse h-4 w-4"
+                aria-label="published"
+              />
               <p className="text-xs font-medium text-sky-500">
                 This note is live on web.
               </p>
@@ -96,6 +106,7 @@ export const Publish = ({ initialData }: PublishProps) => {
                 onClick={onCopy}
                 disabled={copied}
                 className="h-8 rounded-l-none"
+                aria-label="copy link"
               >
                 {copied ? (
                   <Check className="h-4 w-4" />
@@ -109,6 +120,8 @@ export const Publish = ({ initialData }: PublishProps) => {
               className="w-full text-xs"
               disabled={isSubmitting}
               onClick={onUnpublish}
+              variant="destructive"
+              aria-label="unpublish post"
             >
               Unpublish
             </Button>

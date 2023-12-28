@@ -48,16 +48,21 @@ export const Cover = ({ url, preview }: CoverImageProps) => {
             className=" text-muted-foreground text-xs"
             variant="outline"
             onClick={() => coverImage.onReplace(url)}
+            aria-label="change cover image"
           >
-            <ImageIcon className="h-4 w-4 mr-2" />
+            <ImageIcon
+              className="h-4 w-4 mr-2"
+              aria-label="change cover image"
+            />
             Change cover
           </Button>
           <Button
             className=" text-muted-foreground text-xs"
             variant="outline"
             onClick={handleRemoveImage}
+            aria-label="remove cover image"
           >
-            <X className="h-4 w-4 mr-2" />
+            <X className="h-4 w-4 mr-2" aria-label="remove cover image" />
             Remove cover
           </Button>
         </div>
