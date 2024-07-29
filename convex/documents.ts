@@ -198,6 +198,8 @@ export const getById = query({
     if (document.isPublished && !document.isArchived) {
       return document;
     }
+    console.log(identity, document, "==================");
+
     if (!identity) {
       throw new Error("Not authenticated");
     }
@@ -206,6 +208,26 @@ export const getById = query({
       throw new Error("Unauthorized");
     }
     return document;
+  },
+});
+
+export const getMetadataById = query({
+  args: { documentId: v.id("documents") },
+  handler: async (ctx, args) => {
+    const document = await ctx.db.get(args.documentId);
+    if (!document) {
+      throw new Error("Not found");
+    }
+    if (document.isPublished && !document.isArchived) {
+      return {
+        title: document.title,
+        coverImage: document.coverImage,
+      };
+    }
+    return {
+      title: document.title,
+      coverImage: document.coverImage,
+    };
   },
 });
 
