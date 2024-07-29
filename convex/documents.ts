@@ -222,6 +222,7 @@ export const getMetadataById = query({
       return {
         title: document.title,
         coverImage: document.coverImage,
+        content: document.content ? document.content.substring(0, 160) : "",
       };
     }
     return {

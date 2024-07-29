@@ -28,23 +28,54 @@ export async function generateMetadata({ params }: DocumentIdMetadataProps) {
     };
   }
 
+  // return {
+  //   title: document.title,
+  //   // description: document.content ? document.content.substring(0, 160) : "", // First 160 characters as description
+  //   openGraph: {
+  //     title: document.title,
+  //     //description: document.content ? document.content.substring(0, 160) : "",
+  //     url: `https://notion-clone-eight-sable.vercel.app/preview/${params.documentId}`,
+  //     images: document.coverImage
+  //       ? [
+  //           {
+  //             url: document.coverImage,
+  //             width: 800,
+  //             height: 600,
+  //             alt: document.title,
+  //           },
+  //         ]
+  //       : [],
+  //   },
+  // };
+
   return {
     title: document.title,
-    // description: document.content ? document.content.substring(0, 160) : "", // First 160 characters as description
+    description: document.content ? document.content.substring(0, 160) : "",
     openGraph: {
       title: document.title,
-      //description: document.content ? document.content.substring(0, 160) : "",
-      url: `https://notion-clone-eight-sable.vercel.app/preview/${params.documentId}`,
+      description: document.content ? document.content.substring(0, 160) : "",
+      url: `https://yourwebsite.com/documents/${params.documentId}`,
       images: document.coverImage
         ? [
             {
               url: document.coverImage,
-              width: 800,
-              height: 600,
+              width: 256,
+              height: 256,
               alt: document.title,
             },
           ]
         : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: document.title,
+      description: document.content ? document.content.substring(0, 160) : "",
+      image: {
+        url: document.coverImage || "",
+        alt: document.title,
+        width: 800,
+        height: 600,
+      },
     },
   };
 }
